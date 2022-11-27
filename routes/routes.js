@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/nft', (req, res) => {
-    res.send('All NFTs');
+router.get('/', (req, res) => {
+    res.render( 'index',{title: "SilqeeNFTs"});
 });
 
 module.exports = router;

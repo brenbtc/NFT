@@ -30,7 +30,7 @@ app.use((req,res,next)=> {
 })
 
 //Set Template
-app.set('view template', 'ejs');
+app.set('view engine', 'ejs');
 
 //Route Prefix
 app.use('', require('./routes/routes'));
