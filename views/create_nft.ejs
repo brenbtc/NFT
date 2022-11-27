@@ -1,0 +1,38 @@
+<%- include('partials/header') %> 
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-primary">
+                    <h3 class="text-light">Create NFT</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/create" method="post" id="ad-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Select Image</label>
+                            <input class="form-control form-control-lg" type="file" name="image" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter Name" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="floor">Floor Price</label>
+                            <input type="text"  class="form-control form-control-lg" placeholder="Floor Price" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="current">Current Price</label>
+                            <input type="text"  class="form-control form-control-lg" placeholder="List Selling Price" required />
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <input type="submit"  name="submit" value="Mint NFT" class="btn btn-primary btn-lg"  required />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %> 

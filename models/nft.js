@@ -3,9 +3,9 @@ const nftSchema = new mongoose.Schema({
     img: {type: String, required: true},
     name: {type: String, required: true},
     floorPrice: {type: String, required: true},
-    bestOffer: {type: String, required: true},
-    owners: {type: Number, required: true},
-    action: {type: Number, required: true}
+    currentPrice: {type: String, required: true},
+    owners: {type: Number, required: false},
+    // action: {type: Number, required: false}
 })
 
 module.exports = mongoose.model('NFT', nftSchema);

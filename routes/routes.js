@@ -5,4 +5,11 @@ router.get('/', (req, res) => {
     res.render( 'index',{title: "SilqeeNFTs"});
 });
 
+router.get('/create', (req, res) => {
+    res.render("create_nft", {title: "Creation"})
+});
+
+
+
+
 module.exports = router;
