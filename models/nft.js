@@ -5,7 +5,7 @@ const nftSchema = new mongoose.Schema({
     floorPrice: {type: String, required: true},
     currentPrice: {type: String, required: true},
     owners: {type: Number, required: false},
-    // action: {type: Number, required: false}
+    action: {type: Number, required: false}
 })
 
 module.exports = mongoose.model('NFT', nftSchema);
