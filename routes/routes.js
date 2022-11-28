@@ -30,5 +30,13 @@ router.get('/artists', (req, res) => {
     res.render("artists", {title: "Artists"})
 });
 
+router.get('/about', (req, res) => {
+    res.render("about", {title: "About"})
+});
+
+router.get('/jobs', (req, res) => {
+    res.render("jobs", {title: "Jobs"})
+});
+
 
 module.exports = router;
