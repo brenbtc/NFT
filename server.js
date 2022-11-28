@@ -33,7 +33,7 @@ app.use((req,res,next)=> {
 app.set('view engine', 'ejs');
 
 //Route Prefix
-app.use('', require('./routes/routes'));
+app.use('', require('./controllers/routes'));
 
 app.listen(port, () => {
     console.log(`Server Started at http://localhost:${port}`)
