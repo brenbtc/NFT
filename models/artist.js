@@ -4,7 +4,6 @@ const artistSchema = new mongoose.Schema({
     creations: {type: String, required: true},
     owned: {type: Number, required: true},
     about: {type: Number, required: true},
-    action: {type: Number, required: true}
 })
 
 module.exports = mongoose.model('artist', artistSchema)
