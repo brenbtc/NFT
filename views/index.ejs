@@ -14,62 +14,21 @@
                         <th>Action</th>
                     </tr>
                 </thead>
+                <% console.log(nfts) %> 
                 <tbody>
-                    <tr>
-                        <td><img src="../public/assets/Jett.jpg"></td>
-                        <td>Svbian's "Jett"</td>
-                        <td>.1 ETH</td>
-                        <td>3 ETH</td>
-                        <td>2</td>
+                    <% nfts.forEach( NFT=> { %> 
+                    <tr class="align-middle">
+                       <td><img src=" <%= NFT.img %> " width="60" class="img-thumbnail"></td>
+                        <td> <%= NFT.name %> </td>
+                        <td> <%= NFT.floorPrice %> ETH </td>
+                        <td> <%= NFT.currentPrice %> ETH </td>
+                        <td> <%= NFT.owners %> </td>
                         <td>
-                            <a href="" class="text-warning"><i class="fas fa-edit fa-lg mx-1"></i></a>
-                            <a href="" class="text-secondary"><i class="far fa-eye-slash fa-lg mx-1"></i></a>
+                            <a href="/edit/<%= NFT._id %> " class="text-warning"><i class="fas fa-edit fa-lg mx-1"></i></a>
+                            <a href="/delete/<%= NFT._id %> " class="text-secondary"><i class="far fa-eye-slash fa-lg mx-1"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td><img src="../public/assets/Reyna.jpg"></td>
-                        <td>Svbian's "Reyna"</td>
-                        <td>.1 ETH</td>
-                        <td>6 ETH</td>
-                        <td>1</td>
-                        <td>
-                            <a href="" class="text-warning"><i class="fas fa-edit fa-lg mx-1"></i></a>
-                            <a href="" class="text-secondary"><i class="far fa-eye-slash fa-lg mx-1"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="../public/assets/Sinatra.jpg"></td>
-                        <td>Svbian's "Sinatra"</td>
-                        <td>.1 ETH</td>
-                        <td>1 ETH</td>
-                        <td>3</td>
-                        <td>
-                            <a href="" class="text-warning"><i class="fas fa-edit fa-lg mx-1"></i></a>
-                            <a href="" class="text-secondary"><i class="far fa-eye-slash fa-lg mx-1"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="../public/assets/NadeShot.jpg"></td>
-                        <td>Svbian's "Nade"</td>
-                        <td>.1 ETH</td>
-                        <td>3 ETH</td>
-                        <td>7</td>
-                        <td>
-                            <a href="" class="text-warning"><i class="fas fa-edit fa-lg mx-1"></i></a>
-                            <a href="" class="text-secondary"><i class="far fa-eye-slash fa-lg mx-1"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="../public/assets/Suki.jpg"></td>
-                        <td>Svbian's "Suki"</td>
-                        <td>.1 ETH</td>
-                        <td>5 ETH</td>
-                        <td>5</td>
-                        <td>
-                            <a href="" class="text-warning"><i class="fas fa-edit fa-lg mx-1"></i></a>
-                            <a href="" class="text-secondary"><i class="far fa-eye-slash fa-lg mx-1"></i></a>
-                        </td>
-                    </tr>
+                    <% }) %> 
                 </tbody>
             </table>
         </div>

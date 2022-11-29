@@ -5,21 +5,44 @@ const NFT = require('../models/nft');
 const multer = require('multer');
 
 //Image Upload 
-var storage = multer.diskStorage({
+let storage = multer.diskStorage({
     destination: function(req, file, cb){
-        cb(null, '../public/assests')
+        cb(null, './uploads')
     },
     filename: function(req, file, cb){
-        cb(null, file.fieldname+ '_' + Date.now() + '_' + file.originalname);
+        cb(null, file.fieldname + '_' + Date.now() + '_' + file.originalname);
     },
 })
 
-var upload = multer({
+let upload = multer({
     storage: storage, 
 }).single('image');
 
-router.get('/', (req, res) => {
-    res.render( 'index',{title: "SilqeeNFTs"});
+
+//Insert NFT to database
+router.post('/create', upload, (req, res) =>{
+    const nft = new NFT({
+        img: req.file.filename,
+        name: req.body.name,
+        floorPrice: req.body.floorPrice,
+        currentPrice: req.body.currentPrice,
+    });
+    nft.save((err) => {
+        if(err){
+            res.json({message: err.message, type: 'danger'})
+        } else {
+            req.session.message = {
+                type: 'success',
+                message: 'NFT added successfully'
+            }
+            res.redirect('/');
+        }
+    })
+})
+
+router.get('/', async (req, res) => {
+    const nfts = await NFT.find();
+    res.render( 'index',{title: "SilqeeNFTs", nfts: nfts});
 });
 
 router.get('/create', (req, res) => {

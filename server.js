@@ -34,6 +34,7 @@ app.set('view engine', 'ejs');
 
 //Route Prefix
 app.use('', require('./controllers/routes'));
+app.use(express.static('./uploads'));
 
 app.listen(port, () => {
     console.log(`Server Started at http://localhost:${port}`)
