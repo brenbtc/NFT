@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const mongodbURI = process.env.MONGODBURI
 
 //Database connection
-mongoose.connect(process.env.MONGODBURI, {useNewUrlParser: true,   useUnifiedTopology: true,  useCreateIndex: true,
+mongoose.connect(process.env.MONGODBURI, {useNewUrlParser: true,   useUnifiedTopology: true,  
 });
 const db = mongoose.connection;
 db.on('error', (error) => console.log(error))
@@ -45,6 +45,6 @@ app.use('', nftRoutes);
 app.use(express.static('./uploads'));
 
 app.listen(PORT, () => {
-    console.log(`Server Started at http://localhost:${port}`)
+    console.log(`Server Started at http://localhost:${PORT}`)
 });
 
