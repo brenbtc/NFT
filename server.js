@@ -3,6 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose')
 const session = require('express-session');
+const methodOverride = require('method-override')
+const nftRoutes = require('./controllers/routes')
 
 const app = express();
 const port = process.env.port || 3000; 
@@ -16,11 +18,15 @@ db.once('open', ()=> console.log('Connected to the database'))
 //Middleware
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(methodOverride("_method"));
 
 app.use(session({
     secret: 'Secret Key',
+    //Protects the session 
     saveUninitialized: true,
+
     resave: false,
+    //Forces session to be saved back to Store
 }));
 
 app.use((req,res,next)=> {
@@ -33,7 +39,7 @@ app.use((req,res,next)=> {
 app.set('view engine', 'ejs');
 
 //Route Prefix
-app.use('', require('./controllers/routes'));
+app.use('', nftRoutes);
 app.use(express.static('./uploads'));
 
 app.listen(port, () => {

@@ -1,0 +1,43 @@
+<%- include('partials/header') %> 
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-success">
+                    <h3 class="text-light"> New Artist</h3>
+                </div>
+                <div class="card-body p-4">
+
+                    <form action="/artist/new" method="POST">
+                        <div class="mb-3">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter Name" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="floorPrice">Creations</label>
+                            <input type="text"  class="form-control form-control-lg" placeholder="What did they create?" name ="creations" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="currentPrice">Owned</label>
+                            <input type="text"  class="form-control form-control-lg" placeholder="Amount of Owned NFTs" name="owned" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="currentPrice">Liked</label>
+                            <input type="text"  class="form-control form-control-lg" placeholder="Amount of Like NFTs" name="liked" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="currentPrice">About</label>
+                            <input type="text"  class="form-control form-control-lg" placeholder="Enter a fun fact" name="about" required />
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <button type="submit" class="btn btn-primary">Add Artist</button> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %> 

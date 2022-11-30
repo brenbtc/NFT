@@ -1,7 +1,7 @@
 <%- include('partials/header') %> 
 
 <div class="container">
-    <div class="row my-2">
+    <div class="row my-3">
         <div class="table-responsive">
             <table class="table table-striped text-center">
                 <thead>
@@ -14,9 +14,8 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <% console.log(nfts) %> 
                 <tbody>
-                    <% nfts.forEach( NFT=> { %> 
+                    <% nfts.forEach( NFT => { %> 
                     <tr class="align-middle">
                        <td><img src=" <%= NFT.img %> " width="60" class="img-thumbnail"></td>
                         <td> <%= NFT.name %> </td>
@@ -25,7 +24,9 @@
                         <td> <%= NFT.owners %> </td>
                         <td>
                             <a href="/edit/<%= NFT._id %> " class="text-warning"><i class="fas fa-edit fa-lg mx-1"></i></a>
-                            <a href="/delete/<%= NFT._id %> " class="text-secondary"><i class="far fa-eye-slash fa-lg mx-1"></i></a>
+                            <form action="<%= NFT._id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="text-secondary"><i class="far fa-eye-slash fa-lg mx-1"></i></a>
+                            </form>
                         </td>
                     </tr>
                     <% }) %> 
