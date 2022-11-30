@@ -2,23 +2,27 @@ const express = require('express');
 const router = express.Router();
 const Artist = require('../models/artist');
 const NFT = require('../models/nft');
+
+//
 const multer = require('multer');
 
 //Image Upload 
+//Tells Multer where to save the images
 let storage = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, './uploads')
     },
+    //Saves the images w/ unique filenames
     filename: function(req, file, cb){
         cb(null, file.fieldname + '_' + Date.now() + '_' + file.originalname);
     },
 })
-
+//Uploading image at a time
 let upload = multer({
     storage: storage, 
 }).single('image');
 
-// root
+// Root
 router.get('/', async (req, res) => {
     const nfts = await NFT.find();
     res.render( 'index',{title: "SilqeeNFTs", nfts: nfts});
